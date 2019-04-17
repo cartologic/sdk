@@ -62,9 +62,7 @@ class AccessConfiguration extends Component {
         return (
             <Container>
                 <Row>
-                    <Col>
-                        <h3>Access Configuration</h3>
-                    </Col>
+                    <Col><h3>Access Configuration</h3></Col>
                 </Row>
                 <Row className="top-buffer">
                     <Col>
