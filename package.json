@@ -1,0 +1,32 @@
+{
+  "name": "@cartologic/sdk",
+  "version": "0.0.3",
+  "description": "Cartologic Web SDK",
+  "scripts": {
+    "build:js": "babel ./src --out-dir ./dist",
+    "dist:copy": "node tasks/dist-copy.js && node tasks/create-package-json.js",
+    "sass": "node-sass --include-path ./node_modules ./src/stylesheet/sdk.scss",
+    "dist": "npm run build:js && npm run dist:copy && npm run sass -- -o ./dist"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/preset-react": "^7.0.0",
+    "babel-plugin-module-resolver": "^3.1.0",
+    "fs-extra": "^7.0.1",
+    "node-sass": "^4.11.0"
+  },
+  "dependencies": {},
+  "author": "Cartologic",
+  "license": "BSD 2-Clause",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cartologic/sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cartologic/sdk/issues"
+  },
+  "homepage": "https://github.com/cartologic/sdk#readme"
+}

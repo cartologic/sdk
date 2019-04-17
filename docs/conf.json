@@ -1,0 +1,15 @@
+{
+  "plugins": [
+   "proptype-plugin.js"
+  ],
+  "templates": {
+    "default": {
+      "layoutFile": "sdkTemplate/layout.tmpl",
+      "staticFiles": {
+        "include": [
+         
+        ]
+      }
+    }
+  }
+}
