@@ -6,7 +6,11 @@
     "build:js": "babel ./src --out-dir ./dist",
     "dist:copy": "node tasks/dist-copy.js && node tasks/create-package-json.js",
     "sass": "node-sass --include-path ./node_modules ./src/stylesheet/sdk.scss",
-    "dist": "npm run build:js && npm run dist:copy && npm run sass -- -o ./dist"
+    "dist": "npm run build:js && npm run dist:copy && npm run sass -- -o ./dist",
+    "build:doc-css": "npm run sass -- -o ./docs",
+    "build:jsdoc": "jsdoc -r ./src -R docs/getting-started.md -d docs/out -c docs/conf.json",
+    "jsdoc": "npm run build:doc-css && npm run build:jsdoc",
+    "check-docs": "cd docs && ./doc_checker.sh"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.3",
@@ -16,7 +20,9 @@
     "@babel/preset-react": "^7.0.0",
     "babel-plugin-module-resolver": "^3.1.0",
     "fs-extra": "^7.0.1",
-    "node-sass": "^4.11.0"
+    "jsdoc": "^3.5.5",
+    "node-sass": "^4.11.0",
+    "react-docgen": "^4.1.0"
   },
   "dependencies": {},
   "author": "Cartologic",
