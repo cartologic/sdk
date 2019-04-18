@@ -1,6 +1,7 @@
 language: node_js
 node_js:
 - stable
+script: 'true'
 after_success:
 - npm run dist
 before_deploy:
