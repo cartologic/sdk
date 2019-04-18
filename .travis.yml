@@ -1,7 +1,7 @@
 language: node_js
 node_js:
 - stable
-script: 'true'
+script: 'true' #to skip tests temproray
 after_success:
 - npm run dist
 before_deploy:
@@ -11,6 +11,7 @@ deploy:
   email: cartoview@cartologic.com
   skip_cleanup: true
   on:
-    branch: development
+    branch: master
+    tags: true
   api_key:
     secure: VshJZA5JzPR2Hy0sKCpzaIDfGydl83u7JwmBs3NxAnlNR3W9ul2hMqp187YqtUlhjW9V4/VxzOent0cXoXaPEVDkKozwJOUVbECAvflGrpv2TMuHzftyPrD6MrwCm7DNy2KhUA4qp0fHkL3eYQmbW6wb5j40QGuwOT1AZNHg9XWAZLg2ovNsRd7NINudLoaC351GGQlaoAeaaPJa33hT14tOtnxts94fQzscPJuVsxWXhTCby46bcJkEr7Z12UBMX2IMh9A+w27j8jxBJz75V6T2FfhrDyMEx1JqqL8amS0Z18uCjEc9MIkSBkhM3IoTbtPE9LL+ZfqEGCY0dFLjUsRsLTllUujs7vFQV8e9MlurwtzujFRbnrzccPnh/dIK6UnothVYN5xSt10mA1wottFe+/29I7Hu5dtn2R3wJMVYvm1NdUjfbVUlSfbEG0WwezoBKT2YqeWCHt4fz/Avc1iKvXI23EdCwWBxIW5Knn8HcowvI6jyfWDbawZp7xQXKJqrxqsvHJvf15JeKSVQfJ8KJP2K5JBJ7Lh0TSxUDWsYSkAlIJ54p9VsZ1zf8cdp5357+nKwN4CtRQKZhe+aPPJk7XQd5ukJuEYv0XYpupq7sXxJ0l8+5nmo5DBGudmoa71ll+kUDSNkyu5/+O8xDLAu6eM6rLVBbUsR/TmTO9c=
