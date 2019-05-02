@@ -1,7 +1,7 @@
 # Carologic SDK
 
 ![Contributers](https://img.shields.io/github/contributors/cartologic/sdk.svg)
-[![NPM version](https://img.shields.io/npm/v/sdk.svg)](https://www.npmjs.com/package/sdk)
+[![NPM version](https://img.shields.io/npm/v/sdk.svg)](https://www.npmjs.com/package/@cartologic/sdk)
 
 
 
