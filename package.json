@@ -1,6 +1,6 @@
 {
   "name": "@cartologic/sdk",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Cartologic Web SDK",
   "publishConfig": {
     "access": "public"
@@ -24,16 +24,16 @@
     "@babel/plugin-proposal-class-properties": "^7.4.0",
     "@babel/preset-env": "^7.4.3",
     "@babel/preset-react": "^7.0.0",
+    "ava": "^1.4.1",
     "babel-plugin-module-resolver": "^3.1.0",
-    "fs-extra": "^7.0.1",
-    "jsdoc": "^3.5.5",
-    "node-sass": "^4.11.0",
-    "react-docgen": "^4.1.0",
-    "ava": "^0.16.0",
     "co-exec": "^1.0",
     "codecov": "^1.0.1",
+    "fs-extra": "^7.0.1",
     "ghooks": "^1.2.4",
-    "nyc": "^10.0.0",
+    "jsdoc": "^3.5.5",
+    "node-sass": "^4.12.0",
+    "nyc": "^14.0.0",
+    "react-docgen": "^4.1.0",
     "standard": "^8.4.0"
   },
   "dependencies": {
