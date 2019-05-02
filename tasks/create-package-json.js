@@ -28,6 +28,7 @@ function main() {
         homepage,
         peerDependencies,
         dependencies,
+        publishConfig
       } = packageData;
 
       const minimalPackage = {
@@ -42,6 +43,7 @@ function main() {
         homepage,
         peerDependencies,
         dependencies,
+        publishConfig
       };
 
       return new Promise((resolve) => {

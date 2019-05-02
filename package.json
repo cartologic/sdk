@@ -1,12 +1,22 @@
 {
   "name": "@cartologic/sdk",
-  "version": "0.0.3",
+  "version": "0.0.6",
   "description": "Cartologic Web SDK",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build:js": "babel ./src --out-dir ./dist",
     "dist:copy": "node tasks/dist-copy.js && node tasks/create-package-json.js",
     "sass": "node-sass --include-path ./node_modules ./src/stylesheet/sdk.scss",
-    "dist": "npm run build:js && npm run dist:copy && npm run sass -- -o ./dist"
+    "dist": "npm run build:js && npm run dist:copy && npm run sass -- -o ./dist",
+    "build:doc-css": "npm run sass -- -o ./docs",
+    "build:jsdoc": "jsdoc -r ./src -R docs/getting-started.md -d docs/out -c docs/conf.json",
+    "jsdoc": "npm run build:doc-css && npm run build:jsdoc",
+    "check-docs": "cd docs && ./doc_checker.sh",
+    "report-coverage": "nyc report --reporter=lcov > coverage.lcov && codecov",
+    "standard": "standard index.js",
+    "test": "nyc ./node_modules/.bin/ava -v"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.3",
@@ -14,11 +24,24 @@
     "@babel/plugin-proposal-class-properties": "^7.4.0",
     "@babel/preset-env": "^7.4.3",
     "@babel/preset-react": "^7.0.0",
+    "ava": "^1.4.1",
     "babel-plugin-module-resolver": "^3.1.0",
+    "co-exec": "^1.0",
+    "codecov": "^1.0.1",
     "fs-extra": "^7.0.1",
-    "node-sass": "^4.11.0"
+    "ghooks": "^1.2.4",
+    "jsdoc": "^3.5.5",
+    "node-sass": "^4.12.0",
+    "nyc": "^14.0.0",
+    "react-docgen": "^4.1.0",
+    "standard": "^8.4.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "axios": "^0.18.0",
+    "react-paginate": "^6.3.0",
+    "react-select": "^2.4.3",
+    "reactstrap": "^8.0.0"
+  },
   "author": "Cartologic",
   "license": "BSD 2-Clause",
   "repository": {
@@ -28,5 +51,10 @@
   "bugs": {
     "url": "https://github.com/cartologic/sdk/issues"
   },
-  "homepage": "https://github.com/cartologic/sdk#readme"
+  "homepage": "https://github.com/cartologic/sdk#readme",
+  "config": {
+    "ghooks": {
+      "pre-commit": "npm run standard"
+    }
+  }
 }
