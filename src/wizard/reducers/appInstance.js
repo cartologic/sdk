@@ -55,6 +55,7 @@ export function appInstance(state = appInitialState, action) {
             description: state.description ? state.description : map.description,
             map_center: map.center,
             map_zoom: map.zoom,
+            map_layers: map.layers
         };
     };
 

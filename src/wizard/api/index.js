@@ -48,20 +48,7 @@ export function getUsers() {
     return apiInstance.get(`users`);
 }
 
-export function postAppInstance(appInstance) {
-    return apiInstance.post('appinstance/', appInstance);
-};
 
 export function getAppInstance(appInstanceId) {
     return apiInstance.get('appinstance/' + appInstanceId);
-};
-
-export function updateAppInstance(id, appInstance) {
-    return apiInstance.patch('appinstance/' + id + '/', {
-        app_map: appInstance.app_map,
-        title: appInstance.title,
-        description: appInstance.description,
-        config: appInstance.config,
-        //access and bookmarks are not supported yet
-    });
 };

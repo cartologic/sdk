@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Col, Button, Alert, Spinner } from 'reactstrap';
 
-import { postAppInstance, updateAppInstance } from './api';
 import { APP_MODE } from './shared';
 
 
@@ -25,7 +24,7 @@ class ActionBar extends Component {
         this.setState({
             loading: true
         });
-        postAppInstance(this.props.appInstance).then(response => {
+        this.props.postAppInstance().then(response => {
             this.setState({
                 loading: false,
                 successAlertIsVisible: true
@@ -38,15 +37,22 @@ class ActionBar extends Component {
 
             console.log(response);
         }).catch(error => {
+            this.setState({ loading: false, errorAlertIsVisible: true });
+
+            setTimeout(() => {
+                this.setState({
+                    errorAlertIsVisible: false
+                });
+            }, 5000);
             console.log(error);
         });
     };
 
-    editAppInstance = () => {
+    updateAppInstance = () => {
         this.setState({
             loading: true
         });
-        updateAppInstance(this.props.appInstanceId, this.props.appInstance).then(
+        this.props.updateAppInstance().then(
             response => {
                 this.setState({ loading: false, successAlertIsVisible: true });
                 setTimeout(() => {
@@ -79,7 +85,7 @@ class ActionBar extends Component {
                 </Alert>
                 <Button color="primary"
                     className="float-right"
-                    onClick={this.props.isEditMode ? this.editAppInstance : this.addAppInstance}
+                    onClick={this.props.isEditMode ? this.updateAppInstance : this.addAppInstance}
                     disabled={!this.props.isAnyMapSelected} >
                     {this.state.loading ? <Spinner color="light" /> :
                         this.props.isEditMode ? "Save Changes" : "Save"}
@@ -92,8 +98,6 @@ class ActionBar extends Component {
 const mapStateToProps = state => {
     return {
         isAnyMapSelected: state.appInstance.app_map != null,
-        appInstance: state.appInstance,
-        appInstanceId: state.config.instanceToEdit ? state.config.instanceToEdit.id : null,
         isEditMode: state.config.mode === APP_MODE.EDIT
     }
 }
