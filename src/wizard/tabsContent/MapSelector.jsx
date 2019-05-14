@@ -39,7 +39,7 @@ class MapSelector extends Component {
 
     getMapsFromApi() {
         this.setState({ loading: true });
-        getMaps(this.state.mapsOffset, MAPS_LIMIT, this.state.showOnlyUserMaps).then(
+        getMaps(this.state.mapsOffset, MAPS_LIMIT, this.state.showOnlyUserMaps, this.props.filter).then(
             response => {
                 this.setState({
                     loading: false,
@@ -51,7 +51,7 @@ class MapSelector extends Component {
 
     getMapsByTitleFromApi(title) {
         this.setState({ loading: true });
-        getMapsByTitle(this.state.mapsOffset, MAPS_LIMIT, title, this.state.showOnlyUserMaps).then(
+        getMapsByTitle(this.state.mapsOffset, MAPS_LIMIT, title, this.state.showOnlyUserMaps, this.props.filter).then(
             response => {
                 this.setState({
                     loading: false,
