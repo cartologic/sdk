@@ -14,6 +14,7 @@ let appInitialState = {
         showLegend: true
     },
     bookmarks: [],
+    keywords: [],
     access: {
         whoCanView: [],
         whoCanChangeMetadata: [],
@@ -54,8 +55,7 @@ export function appInstance(state = appInitialState, action) {
             title: state.title ? state.title : map.title,
             description: state.description ? state.description : map.description,
             map_center: map.center,
-            map_zoom: map.zoom,
-            map_layers: map.layers
+            map_zoom: map.zoom
         };
     };
 

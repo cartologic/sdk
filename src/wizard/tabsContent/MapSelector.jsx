@@ -28,7 +28,7 @@ class MapSelector extends Component {
     };
 
     componentDidUpdate(prevProps) {
-        //whenever the user selects another map
+        //whenever the user selects another map update selectedMapId in the store
         if (prevProps.selectedMapId !== this.props.selectedMapId) {
             this.setState({ selectedMapId: this.props.selectedMapId });
             var selectedMap = this.state.maps.find(map => map.id === this.props.selectedMapId);
