@@ -1,6 +1,6 @@
 {
   "name": "@cartologic/sdk",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Cartologic Web SDK",
   "publishConfig": {
     "access": "public"
